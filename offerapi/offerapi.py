@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 
@@ -17,7 +18,7 @@ def get_offers(product):
     :return: json-formatted offers
     """
 
-    url = "{0}/products/{1}/offers".format(BASE_URL, product.id)
+    url = "{0}/products/{1}/offers/".format(BASE_URL, product.id)
     headers = {
         "bearer": BEARER_TOKEN,
     }
