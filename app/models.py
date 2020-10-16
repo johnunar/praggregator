@@ -22,6 +22,7 @@ class Product(Model):
             except Offer.DoesNotExist:
                 Offer.objects.create(price=remote_offer['price'], items_in_stock=remote_offer['items_in_stock'],
                                      external_id=remote_offer['id'], product=self)
+        return True
 
 
 class Offer(Model):

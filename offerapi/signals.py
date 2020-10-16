@@ -30,8 +30,10 @@ def register_product(sender, instance, created, **kwargs):
         'name': instance.name,
         'description': instance.description
     }
-
-    # Register only when on production and the product has been created, not updated
+    """
+    Register only when on production (testing data should not be registered through external API)
+    and the product has been created, not updated
+    """
     if not os.environ.get('DJANGO_DEBUG') and created:
         response = requests.post(url, headers=headers, data=data)
         LOGGER.info("Product registered: {0}".format(response.json()))

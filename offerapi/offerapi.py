@@ -1,3 +1,4 @@
+import logging
 import os
 
 import requests
@@ -6,6 +7,7 @@ from app.models import Product
 
 BASE_URL = os.environ.get('AL_BASE_URL')
 BEARER_TOKEN = os.environ.get('AL_TOKEN')
+LOGGER = logging.getLogger('console')
 
 
 def get_offers(product):
@@ -31,3 +33,5 @@ def update_product():
     """
     for product in Product.objects.all():
         product.update_product_offers(get_offers(product))
+
+    LOGGER.info("All products have been updated ({0})".format(Product.objects.all().count()))
