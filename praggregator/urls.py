@@ -7,7 +7,7 @@ from rest_framework import routers, permissions
 from rest_framework.authtoken import views
 
 import praggregator.views
-from app.views import ProductViewSet, UserViewSet, OfferViewSet
+from app.views import ProductViewSet, OfferViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -23,7 +23,6 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
 router.register(r'offers', OfferViewSet)
-router.register(r'user', UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

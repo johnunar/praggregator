@@ -1,7 +1,7 @@
-from django.contrib.auth.models import User
 from rest_framework import viewsets, mixins
+
 from app.models import Product, Offer
-from praggregator.serializers import ProductSerializer, UserSerializer, OfferSerializer
+from praggregator.serializers import ProductSerializer, OfferSerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -19,11 +19,3 @@ class OfferViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.Ge
     """
     queryset = Offer.objects.all()
     serializer_class = OfferSerializer
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    """
-        API endpoint that allows Users to be viewed or edited.
-    """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer

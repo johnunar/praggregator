@@ -13,9 +13,15 @@ class RemoteConnectionTest(TestCase):
     """
 
     def test_offers_connection(self):
+
         url = "{0}/products/1/offers/".format(BASE_URL)
         headers = {
             "bearer": BEARER_TOKEN,
         }
         response = requests.get(url=url, headers=headers)
-        self.assertEqual(response.status_code, 200)  # PyTest: assert response.status_code == 200
+        if BEARER_TOKEN is not None:
+            self.assertEqual(response.status_code, 200)  # PyTest: assert response.status_code == 200
+        else:
+            self.assertEqual(response.status_code, 200,
+                             msg="THE AL_TOKEN environment variable is not set. Remote connection test will fail "
+                                 "without a correct token.")
