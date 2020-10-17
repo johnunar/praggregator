@@ -8,7 +8,7 @@ from app.models import Product
 
 BASE_URL = os.environ.get('AL_BASE_URL')
 BEARER_TOKEN = os.environ.get('AL_TOKEN')
-LOGGER = logging.getLogger('console')
+LOGGER = logging.getLogger('testlogger')
 
 
 def get_offers(product):

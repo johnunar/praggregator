@@ -13,7 +13,8 @@ schema_view = get_schema_view(
     openapi.Info(
         title="Product Aggregator API",
         default_version='v1',
-        description="Test description",
+        description="Let this be the ultimate source of the Product aggregator knowledge. Use it wisely and if "
+                    "anything is wrong, contact the developer.",
         contact=openapi.Contact(email="johnunar@gmail.com"),
     ),
     public=True,

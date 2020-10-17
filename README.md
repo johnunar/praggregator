@@ -200,7 +200,7 @@ curl --request POST \
 
 2. OR use the already created Test Token: 
 `2dc395b341e2c5bcfdacf597bce76dd3790ca834`
-This token is generated for the test user. (username: test, password: test). You can login with these credentials to the [admin console](https://praggregator.herokuapp.com/admin/), too. If you want to test the admin console with a superuser, contact me.
+This token is generated for the test user. (username: test, password: test). You can login with these credentials to the [admin console](https://praggregator.herokuapp.com/admin/), too. If you want to test the admin console with a superuser, [contact me](#contact).
 
 <!-- CONTACT -->
 ## Contact
