@@ -20,20 +20,23 @@ class OfferViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.Ge
     queryset = Offer.objects.all()
     serializer_class = OfferSerializer
 
-    # permission_classes = [permissions.IsAuthenticated]
-
     def get_queryset(self):
         queryset = Offer.objects.all()
         external_id = self.request.query_params.get("id", None)
         prices_from = self.request.query_params.get("pricesFrom", None)
         prices_to = self.request.query_params.get("pricesTo", None)
 
+        # Filter by Offer API ID
         if external_id is not None:
             queryset = queryset.filter(external_id=external_id)
+
+        # Calculate the price delta
         if prices_from is not None and prices_to is not None:
             for item in queryset:
+                # filter values to match the range
                 item.historical_prices = dict(
-                    filter(lambda elem: prices_from <= elem[0] <= prices_to, item.historical_prices.items()))
+                    filter(lambda e: prices_from <= e[0] <= prices_to, item.historical_prices.items()))
+
                 if len(item.historical_prices) != 0:
                     first_value = list(item.historical_prices.values())[0]
                     last_value = list(item.historical_prices.values())[-1]
@@ -46,4 +49,5 @@ class OfferViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.Ge
                         item.delta = str(delta) + " %"
                 else:
                     item.delta = "No price logs found in the provided range"
+
         return queryset

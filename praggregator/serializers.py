@@ -13,7 +13,7 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
 class OfferSerializer(serializers.ModelSerializer):
     product = ProductSerializer(read_only=True)
-    delta = CharField(default="Specify 'pricesFrom' and 'pricesTo' to see a price delta")
+    delta = CharField(default="Specify 'pricesFrom' and 'pricesTo' to see a price delta", read_only=True)
 
     class Meta:
         model = Offer
