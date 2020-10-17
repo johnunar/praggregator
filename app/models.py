@@ -1,6 +1,6 @@
-import json
+import time
 
-from django.db.models import CharField, IntegerField, ForeignKey, Model, CASCADE, PositiveIntegerField
+from django.db.models import CharField, IntegerField, ForeignKey, Model, CASCADE, PositiveIntegerField, JSONField
 
 
 class Product(Model):
@@ -20,6 +20,7 @@ class Product(Model):
                 local_offer = Offer.objects.get(external_id=remote_offer['id'])
                 local_offer.price = remote_offer['price']
                 local_offer.items_in_stock = remote_offer['items_in_stock']
+                local_offer.historical_prices[int(time.time())] = remote_offer['price']
                 local_offer.save()
             except Offer.DoesNotExist:
                 Offer.objects.create(price=remote_offer['price'], items_in_stock=remote_offer['items_in_stock'],
@@ -36,6 +37,7 @@ class Offer(Model):
     price = IntegerField()
     items_in_stock = IntegerField()
     external_id = PositiveIntegerField(unique=True)
+    historical_prices = JSONField(blank=True, default=dict)
     product = ForeignKey(
         Product,
         on_delete=CASCADE,

@@ -174,9 +174,18 @@ export DJANGO_SECRET_KEY="<Secret_key_from_step_4 >"
 
 <!-- USAGE -->
 ## Usage
+Base URL: http://praggregator.herokuapp.com/api/v1
+
 **Full documentation with endpoints and request examples can be found [here](https://praggregator.herokuapp.com/swagger/).**
 
-Base URL: http://praggregator.herokuapp.com/api/v1
+If you would like to see a percentage rise/fall for an offer in a period between two moments, you can use a request like this:
+```shell script
+GET /offers/?id=39628&pricesFrom=1602963740&pricesTo=1602964065
+```
+Where:
+* **id** := external id from the Offers API
+* **pricesFrom** := Time in UNIX Timestamp, from which you would like to calculate the delta.
+* **pricesTo** := Time in UNIX Timestamp, to which you would like to calculate the delta.
 
 ### Authentication
 Before you can access the API, you have to get your AUTH TOKEN. There are two ways to do that:
