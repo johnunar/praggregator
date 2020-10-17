@@ -55,6 +55,7 @@ This section should list any major frameworks that you built your project using.
 * [Python](https://www.python.org/)
 * [Django](https://www.djangoproject.com/)
 * [Django REST framework](https://www.django-rest-framework.org/)
+* [Swagger (docs)](https://swagger.io/)
 
 <!-- THE TASK -->
 ## The task
