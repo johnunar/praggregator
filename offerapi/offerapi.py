@@ -38,6 +38,6 @@ def update_product():
     for product in Product.objects.all():
         offers = get_offers(product)
         if offers is not None:
-            product.update_product_offers(get_offers(product))
+            product.update_product_offers(offers)
 
     LOGGER.info("All products have been updated ({0})".format(Product.objects.all().count()))
