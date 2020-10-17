@@ -1,34 +1,23 @@
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-
-
-
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://applifting.cz/img/e7a83d6232e3c1e0ede78075f5ecb078.svg">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://applifting.cz/">
+    <img src="Full documentation with endpoints and request examples can be found [here](https://praggregator.herokuapp.com/swagger/)." alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Product Aggregator</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+  The exercise
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://praggregator.herokuapp.com/swagger/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://praggregator.herokuapp.com/api/v1/">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/johnunar/praggregator/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/johnunar/praggregator/issues">Request Feature</a>
   </p>
 </p>
 
@@ -42,8 +31,8 @@
 * [The taks](#the-task)
     * [Requirements](#requirements)
     * [Data model](#data-model)
-        *[Products](#products)
-        *[Offers](#offers)
+        * [Products](#products)
+        * [Offers](#offers)
     * [Relations](#relations)
 * [Specification](#specification)
     * [Must have](#must-have)
@@ -185,7 +174,7 @@ export DJANGO_SECRET_KEY="<Secret_key_from_step_4 >"
 
 <!-- USAGE -->
 ## Usage
-Full documentation with endpoints and request examples can be found [here](https://praggregator.herokuapp.com/swagger/).
+**Full documentation with endpoints and request examples can be found [here](https://praggregator.herokuapp.com/swagger/).**
 
 Base URL: http://praggregator.herokuapp.com/api/v1
 
