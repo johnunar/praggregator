@@ -183,7 +183,7 @@ If you would like to see a percentage rise/fall for an offer in a period between
 GET /offers/?id=39628&pricesFrom=1602963740&pricesTo=1602964065
 ```
 Where:
-* **id** := external id from the Offers API
+* **id** := external id from the Offers API (If not specified, you get price delta for all of the prices)
 * **pricesFrom** := Time in UNIX Timestamp, from which you would like to calculate the delta.
 * **pricesTo** := Time in UNIX Timestamp, to which you would like to calculate the delta.
 

@@ -30,18 +30,20 @@ class OfferViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.Ge
 
         if external_id is not None:
             queryset = queryset.filter(external_id=external_id)
-            if prices_from is not None and prices_to is not None:
-                for item in queryset:
-                    item.historical_prices = dict(
-                        filter(lambda elem: prices_from <= elem[0] <= prices_to, item.historical_prices.items()))
-                first_value = list(item.historical_prices.values())[0]
-                last_value = list(item.historical_prices.values())[-1]
-                delta = round(100 * (last_value - first_value) / first_value, 2)
-                if delta < 0:
-                    item.delta = str(delta) + " % fall"
-                elif delta > 0:
-                    item.delta = str(delta) + " % rise"
+        if prices_from is not None and prices_to is not None:
+            for item in queryset:
+                item.historical_prices = dict(
+                    filter(lambda elem: prices_from <= elem[0] <= prices_to, item.historical_prices.items()))
+                if len(item.historical_prices) != 0:
+                    first_value = list(item.historical_prices.values())[0]
+                    last_value = list(item.historical_prices.values())[-1]
+                    delta = round(100 * (last_value - first_value) / first_value, 2)
+                    if delta < 0:
+                        item.delta = str(-delta) + " % fall"
+                    elif delta > 0:
+                        item.delta = str(delta) + " % rise"
+                    else:
+                        item.delta = str(delta) + " %"
                 else:
-                    item.delta = str(delta) + " %"
-
+                    item.delta = "No price logs found in the provided range"
         return queryset
