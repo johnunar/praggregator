@@ -1,6 +1,6 @@
-import json
 import logging
 import os
+from json import JSONDecodeError
 
 import requests
 
@@ -24,7 +24,10 @@ def get_offers(product):
     }
 
     response = requests.get(url=url, headers=headers)
-    return response.json()
+    try:
+        return response.json()
+    except JSONDecodeError:
+        return None
 
 
 def update_product():
@@ -33,6 +36,8 @@ def update_product():
     At least a caching algorithm should be used for a larger product/offer database.
     """
     for product in Product.objects.all():
-        product.update_product_offers(get_offers(product))
+        offers = get_offers(product)
+        if offers is not None:
+            product.update_product_offers(get_offers(product))
 
     LOGGER.info("All products have been updated ({0})".format(Product.objects.all().count()))
