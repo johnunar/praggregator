@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://applifting.cz/">
-    <img src="Full documentation with endpoints and request examples can be found [here](https://praggregator.herokuapp.com/swagger/)." alt="Logo" width="80" height="80">
+    <img src="https://applifting.cz/img/e7a83d6232e3c1e0ede78075f5ecb078.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Product Aggregator</h3>
