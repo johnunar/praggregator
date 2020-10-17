@@ -8,7 +8,7 @@
   <h3 align="center">Product Aggregator</h3>
 
   <p align="center">
-  The exercise
+  Python 3 backend developer exercise
     <br />
     <a href="https://praggregator.herokuapp.com/swagger/"><strong>Explore the docs »</strong></a>
     <br />
