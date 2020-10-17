@@ -20,6 +20,17 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Product Aggregator API",
+        default_version='v1',
+        description="Test description",
+        contact=openapi.Contact(email="johnunar@gmail.com"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
 router = routers.DefaultRouter()
 router.register(r'products', ProductViewSet)
 router.register(r'offers', OfferViewSet)
