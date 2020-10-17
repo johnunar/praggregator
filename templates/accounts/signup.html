@@ -1,8 +1,76 @@
 {% block content %}
-    <h2>Sign up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign up</button>
-    </form>
+    <div class="signup-form">
+        <h2>Sign up</h2>
+        <form method="post">
+            {% csrf_token %}
+            <p>{{ form.username.errors }}</p>
+            <p>{{ form.username.label }}</p>
+            <p>{{ form.username }}</p>
+
+            <p>{{ form.password1.errors }}</p>
+            <p>{{ form.password1.label }}</p>
+            <p>{{ form.password1 }}</p>
+
+            <p>{{ form.password2.errors }}</p>
+            <p>{{ form.password2.label }}</p>
+            <p>{{ form.password2 }}</p>
+
+            <button type="submit">Sign up</button>
+        </form>
+    </div>
+    <style>
+
+        @keyframes bgcolor {
+            0% {
+                background-color: #2B3546
+            }
+
+            30% {
+                background-color: #848EA2
+            }
+
+            60% {
+                background-color: #131E2D
+            }
+
+            90% {
+                background-color: #AFB9CE
+            }
+
+            100% {
+                background-color: #727C90
+            }
+        }
+
+        body {
+            font-family: "Poppins", Roboto, -apple-system, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            -webkit-animation: bgcolor 20s infinite;
+            animation: bgcolor 10s infinite;
+            -webkit-animation-direction: alternate;
+        }
+
+        .signup-form {
+            text-align: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 300px;
+            margin-top: 100px;
+            background: white;
+            height: auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-radius: 20px;
+            -webkit-box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .errorlist {
+            color: red;
+
+        }
+
+
+    </style>
 {% endblock %}
