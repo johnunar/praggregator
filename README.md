@@ -118,6 +118,8 @@ If you want to run this app locally and, for example, test it, you can.
 
 Good Advise: Use a virtual environment ([pipenv](https://github.com/pypa/pipenv), [anaconda](https://www.anaconda.com/products/individual), ...)
 
+You can also use the provided **Docker configuration**.
+
 1. Clone the repo
 ```shell script
 git clone https://github.com/johnunar/praggregator.git
