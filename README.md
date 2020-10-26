@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://applifting.cz/">
-    <img src="https://applifting.cz/img/e7a83d6232e3c1e0ede78075f5ecb078.svg" alt="Logo" width="150">
+    <img src="/johnunar/praggregator/blob/master/applifting_logo.svg" alt="Logo" width="150">
   </a>
 
   <h3 align="center">Product Aggregator</h3>
